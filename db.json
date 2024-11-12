@@ -1,0 +1,48 @@
+{
+  "profile": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "picture_url": "https://example.com/profile.jpg",
+    "age": 30,
+    "education": "Master's degree in Computer Science",
+    "marital_status": "Single",
+    "location": "New York, USA",
+    "occupation": "Software Engineer",
+    "tech_literate": "High"
+  },
+  "quote": "Life is like a box of chocolates, you never know what you're gonna get.",
+  "personality": [
+    "introvert",
+    "thinker",
+    "learner",
+    "adventurous"
+  ],
+  "bio": "I'm a software engineer who loves to code and learn new things. I'm currently working on a project that will revolutionize the way we interact with technology.",
+  "needs": [
+    "Find people with similar skills that can help tackle my company goals.",
+    "Currently finds perfect people from past work relations, family, friends and within my circle and online which is tedious",
+    "I'm currently working on a project that will revolutionize the way we interact with technology.",
+    "The quality of the service is very important"
+  ],
+  "frustrations": [
+    "Price is high related to quality they provide",
+    "Currently finds perfect people from past work relations, family, friends and within my circle and online which is tedious",
+    "Not much choice and comparison not available"
+  ],
+  "brands": [
+    "/assets/nasa-img.svg",
+    "/assets/facebook-img.svg",
+    "/assets/youtube-img.svg",
+    "/assets/instagram-img.svg",
+    "/assets/belle-img.svg",
+    "/assets/haweii-img.svg"
+  ],
+  "payment_medium": [
+    "/assets/cash-img.svg",
+    "/assets/digital-img.svg"
+    ],
+  "payment_method": [
+    "/assets/website-img.svg",
+    "/assets/mobile-img.svg"
+    ]
+}

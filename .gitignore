@@ -40,4 +40,4 @@ coverage/
 # Local environment files
 .env*
 .idea
-
+*~
