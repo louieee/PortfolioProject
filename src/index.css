@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary{
+    background: #1D2254
+}
+.dash-border {
+    border-width: 2px; /* Adjust the border thickness as needed */
+    border-image-source: url('/assets/puple-border.svg'); /* URL to your dash image */
+    border-image-slice: 1; /* Adjust this to control how the image is sliced */
+    border-image-repeat: round; /* Repeat the dash pattern around the border */
+    border-radius: 30px; 
+}
+.box {
+    @apply bg-white p-[36px] rounded-md;
+  }
+
+.box-header {
+    @apply font-bold text-[22px];
+}
+
+.box-text {
+    @apply text-gray-900 font-normal text-[20px] h-auto;
+}
+
+.quote{
+    @apply text-[22px] font-medium;
+}
+
+.box-list-item {
+    @apply before:content-['•'] before:text-purple-700 before:mr-2 before:text-[32px];
+}
+
+.box-brand {
+    @apply h-[70px];
+}
+.box-brand-grow {
+    @apply h-[40px] flex-grow;
+}
+
+.box-payment {
+    @apply h-[70px];
+}
+
+.box-payment-grow {
+    @apply h-[50px] flex-grow;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tailwind CSS and TypeScript Project</title>
+  <script type="module" src="src/index.ts"></script>
+</head>
+<body class="text text-[20px] font-medium text-gray-600">
+    <main>
+        <div class="primary grid md:grid-cols-5 sm:grid-rows-2  gap-5  sm:p-5 md:p-7 lg:p-9">
+            <div class="md:col-span-2 grid grid-rows-5 gap-5">
+                
+                <div class="row-span-3 box flex flex-col gap-y-9">
+                    <div class="flex flex-col gap-y-7 items-center justify-center">
+                        <p class="text text-[30px] font-bold text-purple-800">Kristin Watson</p>
+                        <picture>
+                            <image class="rounded-full w-[300px] h-[300px] object-cover " src="https://static.vecteezy.com/system/resources/previews/036/324/708/non_2x/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg"></image>
+                        </picture>    
+                    </div>
+                    <div class="flex flex-row gap-x-3 font-medium justify-center">
+                        <div class="flex flex-col text text-nowrap text-[16px] text-gray-400 justify-stretch">
+                            <p class="h-12 pt-[3px]">AGE</p>
+                            <p class="h-12 pt-[3px]">EDUCATION</p>
+                            <p class="h-12 pt-[3px]">STATUS</p>
+                            <p class="h-12 pt-[3px]">OCCUPATION</p>
+                            <p class="h-12 pt-[3px]">LOCATION</p>
+                            <p class="h-12 pt-[3px]">TECH LITERATE</p>
+                        </div>
+                        <div class="flex flex-col text-gray-700 text-[20px]">
+                            <p class="h-12">27</p>
+                            <p class="h-12">Masters in Business</p>
+                                <p class="h-12">Single</p>
+                                <p class="h-12">Sales Manager</p>
+                                <p class="h-12">Sydney</p>
+                                <p class="h-12">High</p>
+                        </div>
+
+                                
+                    </div>
+                </div>
+                <div class="row-span-1 box flex flex-row gap-x-3 quote">
+                        <img class="h-4 w-4" src="assets/quote.svg"/>
+                        <p>I am used to with online service and I usually do my online shopping from Instagram.</p>
+                </div>
+                <div class="row-span-1 flex flex-col box gap-y-3">
+                    <p class="font-bold box-header">Personality</p>
+                    <div class="flex flex-row gap-x-2 gap-y-2 flex-wrap box-content">
+                        <p class="bg-gray-100 text-black font-normal py-1 px-3 rounded-full">Introvert</p>
+                        <p class="bg-gray-100 text-black font-normal py-1 px-3 rounded-full">Thinker</p>
+                        <p class="bg-gray-100 text-black font-normal py-1 px-3 rounded-full">Spender</p>
+                        <p class="bg-gray-100 text-black font-normal py-1 px-3 rounded-full">Tech-savy</p>
+
+                    </div> 
+                </div>
+                
+            </div>
+            <div class="md:col-span-3 grid grid-rows-5 gap-5">
+                <div class="box flex flex-col gap-y-3">
+                    <p class="box-header">Bio</p>
+                    <p class="box-text">
+                        She currently lives in Sydney. She finished her master in business and has just been promoted to Sales Manager. She is currently single and likes to go out with friends on long holidays.
+                    </p>
+                </div>
+                <div class="box flex flex-col gap-y-3">
+                    <p class="box-header">Core needs</p>
+                    <ul class="box-text flex flex-col gap-y-3">
+                        <li class="box-list-item">Need to find people with similar skills that can help tackle her company goals. </li>
+                        <li class="box-list-item">Currently finds perfect people from past work relations, family, friends and within my circle and online which is tedious </li>
+                        <li class="box-list-item">The price of the service is very important</li>
+                    </ul>
+                </div>
+                <div class="box flex flex-col gap-y-3">
+                    <p class="box-header">Frustrations</p>
+                    <ul class="box-text flex flex-col gap-y-3">
+                        <li class="box-list-item">Price is high related to quality they provide </li>
+                        <li class="box-list-item">Currently finds perfect people from past work relations, family, friends and within my circle and online which is tedious </li>
+                        <li class="box-list-item">Not much choice and comparison not available</li>
+                    </ul>
+                </div>
+                <div class="box flex flex-col gap-y-3">
+                    <p class="box-header">Brands</p>
+                    <div class="flex flex-row gap-x-3 flex-wrap">
+                        <img class="box-brand" src="assets/nasa-img.svg"/>
+                        <img class="box-brand" src="assets/facebook-img.svg"/>
+                        <img class="box-brand" src="assets/youtube-img.svg"/>
+                        <img class="box-brand" src="assets/instagram-img.svg"/>
+                        <img class="box-brand" src="assets/belle-img.svg"/>
+                        <img class="box-brand" src="assets/haweii-img.svg"/>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-x-5">
+                    <div class="box flex-grow flex flex-col gap-y-3">
+                        <p class="box-header">Payment medium</p>
+                        <div class="flex flex-row gap-x-2 flex-wrap">
+                            <img class="box-payment" src="assets/cash-img.svg"/>
+                            <img class="box-payment" src="assets/digital-img.svg"/>
+                        </div>
+                    </div>
+                    <div class="box flex-grow flex flex-col gap-y-3">
+                        <p class="box-header">Platform</p>
+                        <div class="flex flex-row gap-x-2 flex-wrap">
+                            <img class="box-payment" src="assets/website-img.svg"/>
+                            <img class="box-payment" src="assets/mobile-img.svg"/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

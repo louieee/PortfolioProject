@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# IDE specific files
+.vscode/
+*.suo
+*.ntvs*
+*.ncb*
+*.sdf*
+*.suo*
+*.pdb*
+*.aps*
+*.pch*
+*.obj*
+*.ilk*
+*.ipch*
+*.sbr*
+*.scc*
+*.log*
+*.opensdf*
+*.opendbf*
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Testing files
+coverage/
+
+# Local environment files
+.env*
+.idea
+
