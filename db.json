@@ -2,8 +2,8 @@
   "profile": {
     "first_name": "John",
     "last_name": "Doe",
-    "picture_url": "https://example.com/profile.jpg",
-    "age": 30,
+    "picture_url": "https://static.vecteezy.com/system/resources/previews/036/324/708/non_2x/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg",
+    "age": "30 years old",
     "education": "Master's degree in Computer Science",
     "marital_status": "Single",
     "location": "New York, USA",

@@ -13,19 +13,37 @@
     border-radius: 30px; 
 }
 .box {
-    @apply bg-white p-[36px] rounded-md;
+    @apply bg-white p-[20px] rounded-md;
   }
 
+@media (min-width: 640px) {
+.detail-value {
+    font-size: 16px;
+}
+.detail-key{
+    font-size: 12px;
+}
+}
+
+@media (min-width: 1025px) {
+    .detail-value {
+        font-size: 16px;
+    }
+    .detail-key{
+        font-size: 12px;
+    }
+    }
+
 .box-header {
-    @apply font-bold text-[22px];
+    @apply font-bold text-[18px];
 }
 
 .box-text {
-    @apply text-gray-900 font-normal text-[20px] h-auto;
+    @apply text-gray-900 font-normal text-[16px] h-auto;
 }
 
 .quote{
-    @apply text-[22px] font-medium;
+    @apply text-[18px] font-medium;
 }
 
 .box-list-item {
@@ -33,14 +51,14 @@
 }
 
 .box-brand {
-    @apply h-[70px];
+    @apply h-[50px];
 }
 .box-brand-grow {
     @apply h-[40px] flex-grow;
 }
 
 .box-payment {
-    @apply h-[70px];
+    @apply h-[50px];
 }
 
 .box-payment-grow {
