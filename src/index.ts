@@ -86,12 +86,12 @@ class Index{
       const item = document.createElement('div');
       item.classList.add('flex', 'flex-row', 'gap-x-3');
       const keyParagraph = document.createElement('p');
-      keyParagraph.classList.add('pt-[3px]', 'detail-key', 'text-gray-400','w-[120px]', 'flex-grow-0' 
+      keyParagraph.classList.add('pt-[3px]', 'md:text-[16px]','lg:text-[11px]',  'text-gray-400','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0'
 
       );
-      keyParagraph.textContent = key;
+      keyParagraph.textContent = key.replace("_", " ");
       const valueParagraph = document.createElement('p');
-      valueParagraph.classList.add('detail-value', 'text-gray-700');
+      valueParagraph.classList.add('lg:text-[13px]', 'md:text-[20px]', 'text-gray-700', 'flex-grow');
       valueParagraph.textContent = value;
       item.appendChild(keyParagraph);
       item.appendChild(valueParagraph);

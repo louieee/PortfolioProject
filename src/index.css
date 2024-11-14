@@ -38,12 +38,16 @@
     @apply font-bold text-[18px];
 }
 
+.quote-text{
+    @apply lg:text-[16px] md:text-[20px]
+}
+
 .box-text {
-    @apply text-gray-900 font-normal text-[16px] h-auto;
+    @apply text-gray-900 font-normal lg:text-[16px] md:text-[20px]  h-auto;
 }
 
 .quote{
-    @apply text-[18px] font-medium;
+    @apply lg:text-[18px] md:text-[22px] font-medium;
 }
 
 .box-list-item {

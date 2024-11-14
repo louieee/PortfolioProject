@@ -4,10 +4,10 @@
   <title>Tailwind CSS and TypeScript Project</title>
   <script type="module" src="src/index.ts"></script>
 </head>
-<body class="text text-[16px] font-medium text-gray-600">
+<body class="text lg:text-[16px] md:text-[20px] font-medium text-gray-600">
     <main>
-        <div class="primary grid md:grid-cols-5 sm:grid-rows-2 gap-5 sm:p-5 md:p-7 lg:p-9">
-            <div class="md:col-span-2 grid grid-rows-2 gap-5">
+        <div class="primary grid lg:grid-cols-5 md:grid-rows-2 gap-5 sm:p-5 md:p-7 lg:p-9">
+            <div class="lg:col-span-2 grid grid-rows-2 gap-5">
                 
                 <div class="flex flex-col gap-y-5 box">
                     <div class="flex flex-col gap-y-7 items-center justify-center">
@@ -22,16 +22,16 @@
                 <div class="flex flex-col gap-y-5">
                     <div class="box flex flex-row gap-x-3 quote">
                         <img class="h-4 w-4" src="assets/quote.svg"/>
-                        <p id="user_quote"></p>
+                        <p id="user_quote" class="quote-text"></p>
                     </div>
                     <div class="flex flex-col box gap-y-3">
                         <p class="font-bold box-header">Personality</p>
-                        <div class="flex flex-row gap-x-2 gap-y-2 flex-wrap box-content" id="user_personality">
+                        <div class="flex flex-row gap-x-2 gap-y-2 flex-wrap box-content box-text" id="user_personality">
                         </div> 
                     </div>
                 </div>
             </div>
-            <div class="md:col-span-3 grid grid-rows-2 gap-5">
+            <div class="lg:col-span-3 grid grid-rows-2 gap-5">
                 <div class="flex flex-col gap-y-5">
                     <div class="box flex flex-col gap-y-3">
                         <p class="box-header">Bio</p>
