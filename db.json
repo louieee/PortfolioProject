@@ -8,14 +8,19 @@
     "marital_status": "Single",
     "location": "New York, USA",
     "occupation": "Software Engineer",
-    "tech_literate": "High"
+    "tech_literate": "High",
+    "tech_interest": "Machine Learning",
+    "tech_expertise": "Python"
+
   },
   "quote": "Life is like a box of chocolates, you never know what you're gonna get.",
   "personality": [
     "introvert",
     "thinker",
     "learner",
-    "adventurous"
+    "adventurous",
+    "innovative",
+    "creative"
   ],
   "bio": "I'm a software engineer who loves to code and learn new things. I'm currently working on a project that will revolutionize the way we interact with technology.",
   "needs": [

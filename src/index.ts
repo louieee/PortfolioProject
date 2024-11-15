@@ -86,19 +86,19 @@ class Index{
       const item = document.createElement('div');
       item.classList.add('flex', 'flex-row', 'gap-x-3');
       const keyParagraph = document.createElement('p');
-      keyParagraph.classList.add('pt-[3px]', 'md:text-[16px]','lg:text-[11px]',  'text-gray-400','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0'
+      keyParagraph.classList.add('pt-[3px]', 'md:text-[16px]','lg:text-[12px]',  'text-gray-400','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0'
 
       );
       keyParagraph.textContent = key.replace("_", " ");
       const valueParagraph = document.createElement('p');
-      valueParagraph.classList.add('lg:text-[13px]', 'md:text-[20px]', 'text-gray-700', 'flex-grow');
+      valueParagraph.classList.add('lg:text-[14px]', 'md:text-[20px]', 'text-gray-700', 'flex-grow');
       valueParagraph.textContent = value;
       item.appendChild(keyParagraph);
       item.appendChild(valueParagraph);
       userDetailDiv?.appendChild(item);
       return item;
     }
-    const details_keys = ["age", "education", "marital_status", "location", "occupation", "tech_literate"]
+    const details_keys = ["age", "education", "marital_status", "location", "occupation", "tech_literate", "tech_interest", "tech_expertise"]
 
     details_keys.forEach(key => {
       const item = userDetailItem(key.toUpperCase(), profile[key]) as HTMLDivElement;

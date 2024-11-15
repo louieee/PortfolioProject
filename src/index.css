@@ -5,34 +5,10 @@
 .primary{
     background: #1D2254
 }
-.dash-border {
-    border-width: 2px; /* Adjust the border thickness as needed */
-    border-image-source: url('/assets/puple-border.svg'); /* URL to your dash image */
-    border-image-slice: 1; /* Adjust this to control how the image is sliced */
-    border-image-repeat: round; /* Repeat the dash pattern around the border */
-    border-radius: 30px; 
-}
+
 .box {
     @apply bg-white p-[20px] rounded-md;
   }
-
-@media (min-width: 640px) {
-.detail-value {
-    font-size: 16px;
-}
-.detail-key{
-    font-size: 12px;
-}
-}
-
-@media (min-width: 1025px) {
-    .detail-value {
-        font-size: 16px;
-    }
-    .detail-key{
-        font-size: 12px;
-    }
-    }
 
 .box-header {
     @apply font-bold text-[18px];
