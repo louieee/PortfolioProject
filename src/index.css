@@ -3,24 +3,43 @@
 @tailwind utilities;
 
 .primary{
-    background: #1D2254
+    /* background: #1D2254; */
+    @apply bg-blend-darken bg-blue-950
+}
+.primary-dark{
+    /* background: #1D2254; */
+    @apply bg-blue-200;
 }
 
 .box {
     @apply bg-white p-[20px] rounded-md;
   }
 
+.box-dark{
+    @apply bg-black p-[20px] rounded-md text-white;
+ }
+
 .box-header {
     @apply font-bold text-[18px];
 }
 
+.box-header-dark {
+    @apply font-bold text-[18px] text-white;
+}
+
+
 .quote-text{
-    @apply lg:text-[16px] md:text-[20px]
+    @apply lg:text-[16px] md:text-[20px];
 }
 
 .box-text {
     @apply text-gray-900 font-normal lg:text-[16px] md:text-[20px]  h-auto;
 }
+
+.box-text-dark {
+    @apply text-gray-100 font-normal lg:text-[16px] md:text-[20px]  h-auto;
+}
+
 
 .quote{
     @apply lg:text-[18px] md:text-[22px] font-medium;

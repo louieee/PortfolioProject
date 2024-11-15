@@ -4,7 +4,6 @@ import './index.css';
 import * as fs from 'fs';
 const filePath = 'db.json';
 
-
 interface Profile {
   first_name: string;
   last_name: string;
@@ -29,22 +28,29 @@ interface JsonResponse {
 
 }
 
+enum ColorMode {
+    Light =  "light",
+    Dark = "dark"
+  }
+
 
 class Index{
-  constructor() { 
+  colorMode: ColorMode;
+  constructor(colorMode: ColorMode) {
+    this.colorMode = colorMode;
     this.fetchJsonFromServer(filePath).then((data:JsonResponse)=>{
       console.log("data has been fetched successfully")
       this.readyUI(data);
     }).catch((error)=>{
       console.error("Error fetching JSON:", error);
     });
-    
   }
 
   readyUI = (data:JsonResponse|null)=>{
     if(!data){
       throw new Error("No data provided")
     }
+    this.setColorMode(this.colorMode);
     this.updateFullName(`${data.profile.first_name} ${data.profile.last_name}`);
     this.updateProfilePicture(data.profile.picture_url);
     this.updateUserDetails(data.profile);
@@ -61,12 +67,48 @@ class Index{
     return jsonData;
   }
 
+  setColorMode = (colorMode: ColorMode) =>{
+    this.colorMode = colorMode;
+    const boxClass =(opposite:boolean)=> {
+      let value = this.colorMode === ColorMode.Dark
+      value = opposite === true ? value : !value
+      return value === true ? "box": "box-dark"
+    };
+    const boxHeaderClass =(opposite:boolean)=> {
+      let value = this.colorMode === ColorMode.Dark
+      value = opposite === true ? value : !value
+      return value === true ? "box-header": "box-header-dark"
+    };
+    const boxTextClass =(opposite:boolean)=> {
+      let value = this.colorMode === ColorMode.Dark
+      value = opposite === true ? value : !value
+      return value === true ? "box-ext": "box-text-dark"
+    };
+    
+    const boxElements = document.querySelectorAll(`.${boxClass(true)}`)
+    boxElements.forEach((box) => {
+      box.classList.remove(boxClass(true))
+      box.classList.add(boxClass(false))
+    })
+    const boxHeaderElements = document.querySelectorAll(`.${boxHeaderClass(true)}`)
+    boxHeaderElements.forEach((boxHeader) => {
+      boxHeader.classList.replace(boxHeaderClass(true), boxHeaderClass(false));
+    })
+    const boxTextElements = document.querySelectorAll(`.${boxTextClass(true)}`)
+    boxTextElements.forEach((boxText) => {
+      boxText.classList.replace(boxTextClass(true), boxTextClass(false))
+    })
+  }
+
   updateFullName = (fullName:string) =>{
     const fullNameParagraph = document.getElementById('user_fullname') as HTMLParagraphElement;
     if (!fullNameParagraph) {
       throw new Error("No fullname paragraph element")
     };
     fullNameParagraph.textContent = fullName;
+    if (this.colorMode === ColorMode.Dark){
+      fullNameParagraph.classList.add('text-purple-300')
+    }
   }
 
   updateProfilePicture = (imageLink:string) =>{
@@ -86,12 +128,16 @@ class Index{
       const item = document.createElement('div');
       item.classList.add('flex', 'flex-row', 'gap-x-3');
       const keyParagraph = document.createElement('p');
-      keyParagraph.classList.add('pt-[3px]', 'md:text-[16px]','lg:text-[12px]',  'text-gray-400','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0'
-
-      );
+      let lightModeClassList = ['pt-[3px]', 'md:text-[16px]','lg:text-[12px]',  'text-gray-400','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0']
+      let darkModeClassList = ['pt-[3px]', 'md:text-[16px]','lg:text-[12px]',  'text-gray-100','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0']
+      let classList = this.colorMode === ColorMode.Dark ? darkModeClassList : lightModeClassList
+      keyParagraph.classList.add(...classList)
       keyParagraph.textContent = key.replace("_", " ");
       const valueParagraph = document.createElement('p');
-      valueParagraph.classList.add('lg:text-[14px]', 'md:text-[20px]', 'text-gray-700', 'flex-grow');
+      lightModeClassList = ['lg:text-[14px]', 'md:text-[20px]', 'text-gray-700', 'flex-grow']
+      darkModeClassList = ['lg:text-[14px]', 'md:text-[20px]', 'text-gray-400', 'flex-grow']
+      classList = this.colorMode === ColorMode.Dark? darkModeClassList : lightModeClassList
+      valueParagraph.classList.add(...classList);
       valueParagraph.textContent = value;
       item.appendChild(keyParagraph);
       item.appendChild(valueParagraph);
@@ -115,7 +161,10 @@ class Index{
     personalities.forEach(personality => {
       const item = document.createElement('p');
       item.textContent = personality;
-      item.classList.add('bg-gray-100', 'text-black', 'font-normal', 'py-1', 'px-3', 'rounded-full');
+      const lightModeClassList = ['bg-gray-100', 'text-black', 'font-normal', 'py-1', 'px-3', 'rounded-full']
+      const darkModeClassList = ['bg-gray-700', 'text-white', 'font-normal', 'py-1', 'px-3', 'rounded-full']
+      const classList = this.colorMode === ColorMode.Dark ? darkModeClassList : lightModeClassList
+      item.classList.add(...classList);
       userPersonalityDiv?.appendChild(item);
     });
   }
@@ -160,7 +209,10 @@ class Index{
       throw new Error("No user bio element")
     }
     userBioParagraph.textContent = bio;
+    if (this.colorMode === ColorMode.Dark){
+      userBioParagraph.classList.add('text-white')
+    }
   };
 }
 
-  new Index()
+  new Index(ColorMode.Light)

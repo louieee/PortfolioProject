@@ -1,6 +1,6 @@
 {
   "profile": {
-    "first_name": "John",
+    "first_name": "Louis",
     "last_name": "Doe",
     "picture_url": "https://static.vecteezy.com/system/resources/previews/036/324/708/non_2x/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg",
     "age": "30 years old",
@@ -15,7 +15,7 @@
   },
   "quote": "Life is like a box of chocolates, you never know what you're gonna get.",
   "personality": [
-    "introvert",
+    "extrovert",
     "thinker",
     "learner",
     "adventurous",
