@@ -6,9 +6,16 @@
 </head>
 <body class="text lg:text-[16px] md:text-[20px] font-medium text-gray-600">
     <main>
-        <div class="primary-dark grid lg:grid-cols-5 md:grid-rows-2 gap-5 sm:p-3 md:p-5 lg:p-7">
-            <div class="lg:col-span-2 flex flex-col gap-5">
-                
+        <div class="primary-dark  xs:p-1 sm:p-3 md:p-5 lg:p-7">
+            <div class="flex flex-col gap-2 sm:p-1 md:p-3 lg:p-5">
+                <div>
+                    <button id="toggler" class="bg-gray-900 py-1 px-2 border-white shadow-lg text-white rounded-md">
+                        Enter Dark Mode
+                    </button>
+                </div>
+                <div class="grid lg:grid-cols-5 md:grid-rows-2 gap-5">
+                <div class="lg:col-span-2 flex flex-col gap-5">
+
                 <div class="flex flex-col gap-y-5 box-dark">
                     <div class="flex flex-col gap-y-7 items-center justify-center">
                         <p class="text text-[30px] font-bold text-purple-800" id="user_fullname"></p>
@@ -27,58 +34,63 @@
                     <div class="flex flex-col box-dark gap-y-3">
                         <p class="font-bold box-header-dark ">Personality</p>
                         <div class="flex flex-row gap-x-2 gap-y-2 flex-wrap box-content box-text-dark" id="user_personality">
-                        </div> 
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-3 flex flex-col gap-5">
-                <div class="flex flex-col gap-y-5">
-                    <div class="box-dark flex flex-col gap-y-1">
-                        <p class="box-header-dark ">Bio</p>
-                        <p class="box-text-dark" id="user_bio"></p>
-                    </div>
-                    <div class="box-dark flex flex-col gap-y-1">
-                        <p class="box-header-dark ">Core needs</p>
-                        <ul class="box-text-dark flex flex-col gap-y-3" id="user_needs">
-                            
-                        </ul>
-                    </div>
-                    <div class="box-dark flex flex-col gap-y-1">
-                        <p class="box-header-dark ">Frustrations</p>
-                        <ul class="box-text-dark flex flex-col" id="user_frustrations">
-                        </ul>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-y-5">
-                    <div class="box-dark flex flex-col">
-                        <p class="box-header-dark ">Brands</p>
-                        <div class="flex flex-row gap-x-3 flex-wrap">
-                            <img class="box-brand" src="assets/nasa-img.svg"/>
-                            <img class="box-brand" src="assets/facebook-img.svg"/>
-                            <img class="box-brand" src="assets/youtube-img.svg"/>
-                            <img class="box-brand" src="assets/instagram-img.svg"/>
-                            <img class="box-brand" src="assets/belle-img.svg"/>
-                            <img class="box-brand" src="assets/haweii-img.svg"/>
-                        </div>
-                    </div>
-                    <div class="flex flex-row gap-x-5">
-                        <div class="box-dark flex-grow flex flex-col">
-                            <p class="box-header-dark ">Payment medium</p>
-                            <div class="flex flex-row gap-x-2 flex-wrap">
-                                <img class="box-payment" src="assets/cash-img.svg"/>
-                                <img class="box-payment" src="assets/digital-img.svg"/>
-                            </div>
-                        </div>
-                        <div class="box-dark flex-grow flex flex-col gap-y-3">
-                            <p class="box-header-dark ">Platform</p>
-                            <div class="flex flex-row gap-x-2 flex-wrap">
-                                <img class="box-payment" src="assets/website-img.svg"/>
-                                <img class="box-payment" src="assets/mobile-img.svg"/>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+                <div class="lg:col-span-3 flex flex-col gap-5">
+                    <div class="flex flex-col gap-y-5">
+                        <div class="box-dark flex flex-col gap-y-1">
+                            <p class="box-header-dark ">Bio</p>
+                            <p class="box-text-dark" id="user_bio"></p>
+                        </div>
+                        <div class="box-dark flex flex-col gap-y-1">
+                            <p class="box-header-dark ">Core needs</p>
+                            <ul class="box-text-dark flex flex-col gap-y-3" id="user_needs">
+
+                            </ul>
+                        </div>
+                        <div class="box-dark flex flex-col gap-y-1">
+                            <p class="box-header-dark ">Frustrations</p>
+                            <ul class="box-text-dark flex flex-col" id="user_frustrations">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-y-5">
+                        <div class="box-dark flex flex-col">
+                            <p class="box-header-dark ">Brands</p>
+                            <div class="flex flex-row gap-x-3 flex-wrap">
+                                <img class="box-brand" src="assets/nasa-img.svg"/>
+                                <img class="box-brand" src="assets/facebook-img.svg"/>
+                                <img class="box-brand" src="assets/youtube-img.svg"/>
+                                <img class="box-brand" src="assets/instagram-img.svg"/>
+                                <img class="box-brand" src="assets/belle-img.svg"/>
+                                <img class="box-brand" src="assets/haweii-img.svg"/>
+                            </div>
+                        </div>
+                        <div class="flex flex-row gap-x-5">
+                            <div class="box-dark flex-grow flex flex-col">
+                                <p class="box-header-dark ">Payment medium</p>
+                                <div class="flex flex-row gap-x-2 flex-wrap">
+                                    <img class="box-payment" src="assets/cash-img.svg"/>
+                                    <img class="box-payment" src="assets/digital-img.svg"/>
+                                </div>
+                            </div>
+                            <div class="box-dark flex-grow flex flex-col gap-y-3">
+                                <p class="box-header-dark ">Platform</p>
+                                <div class="flex flex-row gap-x-2 flex-wrap">
+                                    <img class="box-payment" src="assets/website-img.svg"/>
+                                    <img class="box-payment" src="assets/mobile-img.svg"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+
         </div>
     </main>
 </body>

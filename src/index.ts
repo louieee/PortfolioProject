@@ -36,29 +36,30 @@ enum ColorMode {
 
 class Index{
   colorMode: ColorMode;
-  constructor(colorMode: ColorMode) {
-    this.colorMode = colorMode;
+  data: JsonResponse|null = null;
+  constructor() {
+    this.colorMode = ColorMode.Light;
     this.fetchJsonFromServer(filePath).then((data:JsonResponse)=>{
-      console.log("data has been fetched successfully")
-      this.readyUI(data);
+      this.data = data;
+      this.readyUI();
     }).catch((error)=>{
       console.error("Error fetching JSON:", error);
     });
   }
 
-  readyUI = (data:JsonResponse|null)=>{
-    if(!data){
-      throw new Error("No data provided")
+  readyUI = ()=>{
+    if (!this.data){
+      throw new Error("data is not available");
     }
     this.setColorMode(this.colorMode);
-    this.updateFullName(`${data.profile.first_name} ${data.profile.last_name}`);
-    this.updateProfilePicture(data.profile.picture_url);
-    this.updateUserDetails(data.profile);
-    this.updateUserQuote(data.quote);
-    this.updateUserBio(data.bio);
-    this.updateUserPersonality(data.personality);
-    this.updateUserFrustrations(data.frustrations);
-    this.updateUserNeeds(data.needs);
+    this.updateFullName(`${this.data.profile.first_name} ${this.data.profile.last_name}`);
+    this.updateProfilePicture(this.data.profile.picture_url);
+    this.updateUserDetails(this.data.profile);
+    this.updateUserQuote(this.data.quote);
+    this.updateUserBio(this.data.bio);
+    this.updateUserPersonality(this.data.personality);
+    this.updateUserFrustrations(this.data.frustrations);
+    this.updateUserNeeds(this.data.needs);
   }
 
   fetchJsonFromServer = async(filePath: string)=> {
@@ -67,8 +68,18 @@ class Index{
     return jsonData;
   }
 
+  toggleColorMode = ()=>{
+      if (this.colorMode === ColorMode.Dark){
+        this.colorMode = ColorMode.Light;
+      }else{
+        this.colorMode = ColorMode.Dark;
+      }
+      this.readyUI();
+  }
+
   setColorMode = (colorMode: ColorMode) =>{
     this.colorMode = colorMode;
+    this.updateToggleButton(colorMode)
     const boxClass =(opposite:boolean)=> {
       let value = this.colorMode === ColorMode.Dark
       value = opposite === true ? value : !value
@@ -82,8 +93,15 @@ class Index{
     const boxTextClass =(opposite:boolean)=> {
       let value = this.colorMode === ColorMode.Dark
       value = opposite === true ? value : !value
-      return value === true ? "box-ext": "box-text-dark"
+      return value === true ? "box-text": "box-text-dark"
     };
+    const primaryClass =(opposite:boolean)=> {
+      let value = this.colorMode === ColorMode.Dark
+      value = opposite === true ? value : !value
+      return value === true ? "primary": "primary-dark"
+    };
+
+    
     
     const boxElements = document.querySelectorAll(`.${boxClass(true)}`)
     boxElements.forEach((box) => {
@@ -98,6 +116,24 @@ class Index{
     boxTextElements.forEach((boxText) => {
       boxText.classList.replace(boxTextClass(true), boxTextClass(false))
     })
+    const primaryElements = document.querySelectorAll(`.${primaryClass(true)}`);
+    primaryElements.forEach((primaryElement) => {
+      primaryElement.classList.replace(primaryClass(true), primaryClass(false))
+    })
+  }
+
+  updateToggleButton = (colorMode: ColorMode) => {
+    const toggleButton = document.getElementById("toggler") as HTMLButtonElement;
+    if (colorMode === ColorMode.Light){
+      toggleButton.classList.remove("bg-gray-900", "text-white")
+      toggleButton.classList.add("bg-gray-200", "text-black")
+      toggleButton.textContent = "Enter Dark Mode"
+    }else if (colorMode === ColorMode.Dark){
+      toggleButton.classList.remove("bg-gray-200", "text-black")
+      toggleButton.classList.add("bg-blue-950", "text-white")
+      toggleButton.textContent = "Enter Light Mode"
+    }
+    toggleButton.onclick =()=>this.toggleColorMode()
   }
 
   updateFullName = (fullName:string) =>{
@@ -107,7 +143,7 @@ class Index{
     };
     fullNameParagraph.textContent = fullName;
     if (this.colorMode === ColorMode.Dark){
-      fullNameParagraph.classList.add('text-purple-300')
+      fullNameParagraph.classList.add('text-purple-200')
     }
   }
 
@@ -124,6 +160,7 @@ class Index{
     if (!userDetailDiv){
       throw new Error("No user details element")
     }
+    userDetailDiv.innerHTML = "";
     const userDetailItem = (key:string, value:string) => {
       const item = document.createElement('div');
       item.classList.add('flex', 'flex-row', 'gap-x-3');
@@ -131,12 +168,14 @@ class Index{
       let lightModeClassList = ['pt-[3px]', 'md:text-[16px]','lg:text-[12px]',  'text-gray-400','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0']
       let darkModeClassList = ['pt-[3px]', 'md:text-[16px]','lg:text-[12px]',  'text-gray-100','md:w-[140px]', 'xs:w-[140px]', 'sm:w-[140px]', 'lg:w-[100px]', 'flex-grow-0']
       let classList = this.colorMode === ColorMode.Dark ? darkModeClassList : lightModeClassList
+      keyParagraph.classList.remove(...keyParagraph.classList)
       keyParagraph.classList.add(...classList)
       keyParagraph.textContent = key.replace("_", " ");
       const valueParagraph = document.createElement('p');
       lightModeClassList = ['lg:text-[14px]', 'md:text-[20px]', 'text-gray-700', 'flex-grow']
       darkModeClassList = ['lg:text-[14px]', 'md:text-[20px]', 'text-gray-400', 'flex-grow']
       classList = this.colorMode === ColorMode.Dark? darkModeClassList : lightModeClassList
+      valueParagraph.classList.remove(...valueParagraph.classList)
       valueParagraph.classList.add(...classList);
       valueParagraph.textContent = value;
       item.appendChild(keyParagraph);
@@ -158,6 +197,7 @@ class Index{
     if (!userPersonalityDiv){
       throw new Error("No user personality element")
     }
+    userPersonalityDiv.innerHTML = "";
     personalities.forEach(personality => {
       const item = document.createElement('p');
       item.textContent = personality;
@@ -174,6 +214,7 @@ class Index{
     if (!userNeedsDiv){
       throw new Error("No user needs element")
     }
+    userNeedsDiv.innerHTML = "";
     needs.forEach(need => {
       const item = document.createElement('li');
       item.textContent = need;
@@ -187,6 +228,7 @@ class Index{
     if (!userFrustrationsDiv){
       throw new Error("No user frustrations element")
     }
+    userFrustrationsDiv.innerHTML = "";
     frustrations.forEach(frustration => {
       const item = document.createElement('li');
       item.textContent = frustration;
@@ -215,4 +257,4 @@ class Index{
   };
 }
 
-  new Index(ColorMode.Light)
+const App  = new Index()
