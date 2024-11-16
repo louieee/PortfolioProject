@@ -125,7 +125,7 @@ class Index{
   updateToggleButton = (colorMode: ColorMode) => {
     const toggleButton = document.getElementById("toggler") as HTMLButtonElement;
     if (colorMode === ColorMode.Light){
-      toggleButton.classList.remove("bg-gray-900", "text-white")
+      toggleButton.classList.remove("bg-blue-950", "text-white")
       toggleButton.classList.add("bg-gray-200", "text-black")
       toggleButton.textContent = "Enter Dark Mode"
     }else if (colorMode === ColorMode.Dark){
@@ -143,7 +143,11 @@ class Index{
     };
     fullNameParagraph.textContent = fullName;
     if (this.colorMode === ColorMode.Dark){
+      fullNameParagraph.classList.remove('text-purple-700')
       fullNameParagraph.classList.add('text-purple-200')
+    }else if (this.colorMode === ColorMode.Light){
+      fullNameParagraph.classList.remove('text-purple-200')
+      fullNameParagraph.classList.add('text-purple-700')
     }
   }
 
